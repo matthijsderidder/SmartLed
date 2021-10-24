@@ -32,10 +32,7 @@ void setup()
 // main code here, to run repeatedly:
 void loop()
 {
-  led.rainbow(10);
-  
-  // Just wait a while
-  delay(1000);
+  led.rainbow();
 } // loop
 
 // End

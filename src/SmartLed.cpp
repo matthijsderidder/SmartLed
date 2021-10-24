@@ -55,20 +55,20 @@ void SmartLed::color(uint8_t r, uint8_t g, uint8_t b) {
     @param duration The duration of the fade effect
 */
 void SmartLed::fade(uint8_t r, uint8_t g, uint8_t b, uint16_t duration) { 
-  uint16_t dly = 20;
-  uint16_t steps = duration / dly;
+  int dly = 20;
+  int steps = duration / dly;
 
   uint8_t rStart = _rCurr;
   uint8_t gStart = _gCurr;
   uint8_t bStart = _bCurr;
 
-  uint8_t rDiff = r - rStart;
-  uint8_t gDiff = g - gStart;
-  uint8_t bDiff = b - bStart;
+  int rDiff = r - rStart;
+  int gDiff = g - gStart;
+  int bDiff = b - bStart;
 
   uint8_t rVal, bVal, gVal;
 
-  for(uint16_t i = 0; i < steps - 1; i++) {
+  for(int i = 0; i < steps - 1; i++) {
     rVal = rStart + (rDiff * i / steps);
     gVal = gStart + (gDiff * i / steps);
     bVal = bStart + (bDiff * i / steps);
@@ -96,9 +96,14 @@ void SmartLed::glow(uint8_t r, uint8_t g, uint8_t b, uint16_t duration, uint16_t
   delay(50);
 }
 
+/**
+    Runs a rainbow effect
+
+    @param amount   The amount of cycles.
+    @param duration The duration of the glow effect
+    @param hold     The amount of time to wait between the fades
+*/
 void SmartLed::rainbow(uint16_t amount, uint16_t duration, uint16_t hold) {  
-  fade(0, 0, 0, duration);
-  
   for (int i = 0; i < amount; i++) {
     // Yellow
     fade(255, 255, 0, duration);
@@ -124,6 +129,4 @@ void SmartLed::rainbow(uint16_t amount, uint16_t duration, uint16_t hold) {
     fade(0, 255, 0, duration);
     delay(hold);
   }
-
-  fade(0, 0, 0, duration);
 }
