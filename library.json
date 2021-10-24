@@ -1,0 +1,19 @@
+{
+  "name": "SmartLed",
+  "version": "1.0.0",
+  "keywords": "arduino, led, smartled",
+  "description": "This library helps with RGB LED effects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthijsderidder/SmartLed"
+  },
+  "authors": {
+    "name": "Matthijs de Ridder",
+    "email": "info@matthijsderidder.nl",
+    "url": "https://matthijsderidder.nl"
+  },
+  "license": "MIT",
+  "homepage": "https://matthijsderidder.nl",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
